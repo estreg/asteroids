@@ -5,6 +5,8 @@ from constants import PLAYER_TURN_SPEED
 from constants import PLAYER_SPEED
 from constants import PLAYER_SHOOT_SPEED
 from constants import PLAYER_SHOOT_COOLDOWN
+from constants import SCREEN_WIDTH
+from constants import SCREEN_HEIGHT
 
 import pygame
 
@@ -57,6 +59,12 @@ class Player(CircleShape):
             velocity = direction * PLAYER_SHOOT_SPEED
             Shot(position.x, position.y, velocity)
             self.timer += PLAYER_SHOOT_COOLDOWN
+
+    def reset(self, x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2):
+        self.position = pygame.Vector2(x, y)
+        self.rotation = 0
+        self.timer = 0
+
 
 
 
